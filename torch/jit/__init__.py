@@ -21,6 +21,7 @@ from torch.jit._script import (
     RecursiveScriptModule,
     ScriptWarning,
     interface,
+    _isinstance,
     CompilationUnit,
     ScriptFunction,
     _unwrap_optional,
@@ -68,6 +69,10 @@ Error.__qualname__ = "Error"
 def annotate(the_type, the_value):
     # noop in python
     return the_value
+
+
+# for torch.jit.isinstance 
+isinstance = _isinstance
 
 
 if not torch._C._jit_init():
