@@ -1557,7 +1557,7 @@ def _import_module_from_library(module_name, path, is_python_module):
     # Close the .so file after load.
     with file:
         if is_python_module:
-            return imp.load_module(module_name, file, path, description)
+            return imp.load_module(module_name, file, path, description)  # type: ignore[arg-type]
         else:
             torch.ops.load_library(path)
 
